@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EyesEverywhere</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      margin-right: 15px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      line-height: 56px;
+      margin-left: -5px;
+    }
+
+    .sidebar-link.active {
+      background-color: #3B8224 !important;
+      color: white !important;
+      border-radius: 10px;
+    }
+
+    .sidebar-link.active i,
+    .sidebar-link.active .hide-menu {
+      color: white !important;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .hide-menu {
+      white-space: normal;
+      word-wrap: break-word;
+      margin-left: 10px;
+    }
+
+    .sidebar-link span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .sidebar-link:hover {
+      background-color: rgba(59, 130, 36, 0.3) !important;
+      color: #3B8224 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Novos estilos para seções de ocorrências e auditorias */
+    .ocorrencias-section > div,
+    .auditorias-section > div {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.25rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .ocorrencias-section > div:hover,
+    .auditorias-section > div:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-outline-success {
+      border-color: #4F9521;
+      color: #4F9521;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-outline-success:hover {
+      background-color: #4F9521;
+      color: white;
+    }
+
+    /* Ícones dentro dos blocos */
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .icon-alert {
+      background-color: #21560F;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .icon-auditoria {
+      background-color: #AACF45;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .info-text p {
+      margin-bottom: 0.25rem;
+    }
+
+    .info-text small {
+      font-size: 14px;
+      color: #555;
+      margin-right: 1rem;
+    }
+
+    .estado.aprovada {
+      color: #4CAF50; /* Verde */
+      font-weight: bold;
+    }
+
+    .estado.rejeitada {
+      color: #F44336; /* Vermelho */
+      font-weight: bold;
+    }
+
+    .estado.em-analise {
+      color: #FFC107; /* Amarelo */
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+            <div class="brand-logo d-flex align-items-center">
+              <img src="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" class="logo-img" alt="Logotipo" />
+              <span class="hide-menu logo-text">EyesEveryWhere</span>
+            </div>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">HOME</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html">
+                <span><i class="ti ti-layout-dashboard"></i></span>
+                <span class="hide-menu">Página Principal</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">COMPONENTES</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html">
+                <span><i class="ti ti-user"></i></span>
+                <span class="hide-menu">Gestão de Peritos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-alerts.html">
+                <span><i class="ti ti-file-description"></i></span>
+                <span class="hide-menu">Gestão de Ocorrências e Auditorias</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html">
+                <span><i class="ti ti-box"></i></span>
+                <span class="hide-menu">Gestão de Materiais</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <div class="body-wrapper">
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <form class="d-flex ms-auto me-3" style="max-width: 300px; width: 100%;">
+              <div class="input-group border rounded-pill overflow-hidden">
+                <span class="input-group-text bg-white border-0 px-3">
+                  <i class="ti ti-search text-muted"></i>
+                </span>
+                <input class="form-control border-0 shadow-none" type="text" placeholder="Procurar ..." />
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="definicoes.html"><i class="ti ti-settings" style="color: #3B8224;"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="alertas.html">
+                  <i class="ti ti-bell-ringing" style="color: #3B8224;"></i>
+                  <div class="notification rounded-circle" style="background-color: #3B8224; width: 8px; height: 8px;"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="authentication-login.html"><i class="ti ti-logout" style="color: #3B8224;"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="#"><i class="ti ti-user" style="color: #3B8224;"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="container-fluid">
+        <div class="card p-5" style="background-color: #ffffff; border: none; border-radius: 16px;">
+          <h4 class="fw-semibold mb-4 text-black">Ocorrências Identificadas</h4>
+          <div class="ocorrencias-section"></div>
+          <hr class="my-5" />
+          <h4 class="fw-semibold mb-4 text-black">Auditorias Agendadas</h4>
+          <div class="auditorias-section"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="detalhesOcorrencia.html?id=0">Ver Detalhes</a>
+    <a href="detalhesAuditoria.html?id=0">Ver Detalhes</a>
+
+  </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+
+  <script>
+function formatarClasseEstado(estado) {
+      if (!estado) return "";
+      const estadoFormatado = estado.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      switch (estadoFormatado) {
+        case 'aprovada':
+          return 'aprovada';
+        case 'rejeitada':
+          return 'rejeitada';
+        case 'em analise':
+        case 'em análise':
+          return 'em-analise';
+        default:
+          return '';
+      }
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const ocorrencias = JSON.parse(localStorage.getItem('ocorrencias') || '[]');
+      const auditorias = JSON.parse(localStorage.getItem('auditorias') || '[]');
+
+      const ocorrenciasContainer = document.querySelector('.ocorrencias-section');
+      const auditoriasContainer = document.querySelector('.auditorias-section');
+
+      ocorrenciasContainer.innerHTML = '';
+      auditoriasContainer.innerHTML = '';
+
+      ocorrencias.forEach((o, i) => {
+  ocorrenciasContainer.insertAdjacentHTML('beforeend', `
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <div class="icon-box icon-alert">
+          <i class="ti ti-alert-circle"></i>
+        </div>
+        <div class="info-text" style="color: #000;">
+          <p class="mb-0 fw-semibold" style="color: #21560F;">Ocorrência ${i + 1}</p>
+          <div>
+            <small>Data: ${o.data}</small>
+            <small>Tipo: ${o.tipo}</small>
+            <small>Estado: <span class="estado ${formatarClasseEstado(o.estado)}">${o.estado}</span></small>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-outline-success"
+        onclick="window.location.href='detalhesOcorrencia.html?id=${i}'">
+        Ver Detalhes
+      </button>
+    </div>
+  `);
+});
+
+
+
+     auditorias.forEach((a, i) => {
+  auditoriasContainer.insertAdjacentHTML('beforeend', `
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <div class="icon-box icon-auditoria">
+          <i class="ti ti-clipboard-text"></i>
+        </div>
+        <div class="info-text" style="color: #000;">
+          <p class="mb-0 fw-semibold" style="color: #AACF45;">Auditoria ${i + 1}</p>
+          <div>
+            <small>Data Criação: ${a.dataCriacao}</small>
+            <small>Tipo: ${a.tipo}</small>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-outline-success" onclick="window.location.href='detalhesAuditoria.html?id=${a.id}'">
+        Ver Detalhes
+      </button>
+    </div>
+  `);
+});
+
+
+    });
+  </script>
+</body>
+
+</html>

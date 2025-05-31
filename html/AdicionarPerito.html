@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EyesEverywhere</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
+  <style>
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      margin-right: 15px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      line-height: 56px;
+      margin-left: -5px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .hide-menu {
+      white-space: normal;
+      word-wrap: break-word;
+      margin-left: 10px;
+    }
+
+    .sidebar-link span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .card-custom {
+      margin-top: 30px;
+    }
+
+    .form-label {
+      font-weight: bold;
+      color: #3B8224;
+    }
+
+    .btn-save {
+      background-color: #3B8224;
+      color: white;
+    }
+
+    .btn-save:hover {
+      background-color: #2b6b1b;
+      color: white;
+    }
+
+    .card-body-custom {
+      background-color: #f8f9fa;
+    }
+
+    .nav-tabs-custom .nav-item .nav-link {
+      color: #3B8224;
+      font-weight: bold;
+    }
+
+    .nav-tabs-custom .nav-item .nav-link.active {
+      color: #fff;
+      background-color: #3B8224;
+    }
+
+    .sidebar-link.active {
+    background-color: #3B8224 !important; /* verde */
+    color: white !important;
+    border-radius: 10px;
+  }
+
+  .sidebar-link.active i {
+    color: white !important;
+  }
+
+  .sidebar-link.active .hide-menu {
+    color: white !important;
+  }
+
+  .sidebar-link {
+    transition: all 0.3s ease; /* Transição suave */
+  }
+
+  .sidebar-link:hover {
+      background-color: rgba(59, 130, 36, 0.30) !important; /* Verde levemente mais carregado */
+      color: #3B8224 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+
+  .card-body-custom input,
+  .card-body-custom select,
+  .card-body-custom textarea {
+    background-color: white !important;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+            <div class="brand-logo d-flex align-items-center">
+              <img src="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" width="56" height="56" alt="Novo logotipo" class="logo-img" />
+              <span class="hide-menu logo-text">EyesEveryWhere</span>
+            </div>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">HOME</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Página Principal</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">COMPONENTES</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link active" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>  <!-- Ícone de uma pessoa (usuário) -->
+                </span>
+                <span class="hide-menu">Gestão de Peritos</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>  <!-- Ícone de file-description -->
+                </span>
+                <span class="hide-menu">Gestão de Ocorrências e Auditorias</span>
+              </a>
+            </li>                       
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-box"></i>  <!-- Ícone de caixa -->
+                </span>
+                <span class="hide-menu">Gestão de Materiais</span>
+              </a>
+            </li>            
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+    </aside>
+    <!-- Sidebar End -->
+
+    <!-- Main Wrapper -->
+    <div class="body-wrapper">
+      <!-- Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <form class="d-flex ms-auto me-3" style="max-width: 300px; width: 100%;">
+              <div class="input-group border rounded-pill overflow-hidden">
+                <span class="input-group-text bg-white border-0 px-3">
+                  <i class="ti ti-search text-muted"></i>
+                </span>
+                <input class="form-control border-0 shadow-none" type="text" placeholder="Procurar ..." aria-label="Procurar">
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="definicoes.html">
+                  <i class="ti ti-settings" style="color: #3B8224;"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="alertas.html">
+                  <i class="ti ti-bell-ringing" style="color: #3B8224;"></i>
+                  <div class="notification rounded-circle" style="background-color: #3B8224; width: 8px; height: 8px;"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="authentication-login.html">
+                  <i class="ti ti-logout" style="color: #3B8224;"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="AdicionarPerito.html">
+                  <i class="ti ti-user" style="color: #3B8224;"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Header End -->
+
+      <!-- Editar Perfil Card Start -->
+      <div class="container-fluid">
+        <!-- Título "Gestão de Peritos" -->
+        <h4 class="page-title" style="font-weight: 600;">Gestão de Peritos</h4>
+
+        <div class="card shadow-sm card-custom">
+          <div class="card-header bg-white border-0 nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link text-muted" href="ui-buttons.html">Listar Peritos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Adicionar Perito</a>
+              </li>
+            </ul>
+          </div>
+          
+
+      <div class="card-body card-body-custom border-top">
+            <div class="d-flex align-items-center mb-4">
+              <div class="position-relative d-inline-block me-3">
+                <!-- Ícone principal (usuário) dentro de uma bolinha cinza clara -->
+                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 64px; height: 64px; background-color: #D3D3D3;">
+                  <i class="ti ti-user" style="font-size: 32px; color: #3B8224;"></i>
+                </div>
+
+                <!-- Ícone de editar (lápis) dentro de uma bolinha verde -->
+                <div class="position-absolute bottom-0 end-0 translate-middle rounded-circle d-flex align-items-center justify-content-center"
+                    style="background-color: #3B8224; width: 20px; height: 20px;">
+                    <i class="ti ti-pencil" style="font-size: 12px; color: white;"></i>
+                </div>
+              </div>
+              <h5 class="fw-bold mb-0" style="color: #3B8224;">Criar Perfil</h5>
+            </div>
+
+
+            <form id="form-perito">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nome Completo</label>
+                  <input id="nomeCompleto" type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Cidade</label>
+                  <input id="cidade" type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">E-mail</label>
+                  <input id="email" type="email" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">País</label>
+                  <input id="pais" type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">Data De Nascimento</label>
+                  <input id="dataNascimento" type="date" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Telemóvel</label>
+                  <input id="telemovel" type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">Morada</label>
+                  <input id="morada" type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Nome De Utilizador</label>
+                  <input id="nomeUtilizador" type="text" class="form-control" required>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <label class="form-label">Código Postal</label>
+                  <input id="codigoPostal" type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Especialidade</label>
+                  <select id="especialidade" class="form-select" required>
+                    <option value="Validação da Ocorrência">Validação da Ocorrência</option>
+                    <option value="Avaliação e Classificação">Avaliação e Classificação</option>
+                    <option value="Emissão de Relatórios">Emissão de Relatórios</option>
+                    <option value="Atribuição de Responsáveis">Atribuição de Responsáveis</option>
+                    <option value="Monitoramento do Progresso">Monitoramento do Progresso</option>
+                  </select>
+                </div>
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn px-4 btn-save">Guardar</button>
+              </div>
+            </form>            
+
+
+          </div>
+        </div>
+      </div>
+      <!-- Editar Perfil Card End -->
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("form-perito").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const campos = [
+      "nomeCompleto", "cidade", "email", "pais",
+      "dataNascimento", "telemovel", "morada",
+      "nomeUtilizador", "codigoPostal", "especialidade"
+    ];
+
+    const dados = {};
+    campos.forEach(campo => {
+      dados[campo] = document.getElementById(campo).value;
+    });
+
+    // Gerar um ID único para cada perito com base no timestamp atual
+    dados.id = Date.now(); // ID único gerado com base no timestamp
+
+    dados.estado = "disponível"; // Estado padrão, caso precise
+
+    // Recupera o array de peritos do localStorage ou cria um novo se não existir
+    const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+
+    // Adiciona o novo perito ao array
+    peritos.push(dados);
+
+    // Armazena o array de peritos de volta no localStorage
+    localStorage.setItem("peritos", JSON.stringify(peritos));
+
+    alert("Perito adicionado com sucesso!");
+
+    // Limpar os campos do formulário
+    campos.forEach(campo => {
+      const input = document.getElementById(campo);
+      if (input.tagName === "SELECT") {
+        input.selectedIndex = 0;
+      } else {
+        input.value = "";
+      }
+    });
+
+    // Redireciona para a página "ui-buttons.html"
+    window.location.href = "ui-buttons.html"; // Aqui está o redirecionamento
+  });
+  </script>  
+  
+</body>
+
+</html>

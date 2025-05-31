@@ -1,0 +1,393 @@
+<!--PAGINA REFERENTE A GESTAO DE PERITOS-->
+
+<!--PAGINA REFERENTE A GESTAO DE PERITOS-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EyesEverywhere</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
+  <style>
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      margin-right: 15px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      line-height: 56px;
+      margin-left: -5px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .hide-menu {
+      white-space: normal;
+      word-wrap: break-word;
+      margin-left: 10px;
+    }
+
+    .sidebar-link span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .card-custom {
+      margin-top: 30px;
+    }
+
+    .form-label {
+      font-weight: bold;
+      color: #3B8224;
+    }
+
+    .btn-save {
+      background-color: #3B8224;
+      color: white;
+    }
+
+    .card-body-custom {
+      background-color: #f8f9fa;
+    }
+
+    .nav-tabs-custom .nav-item .nav-link {
+      color: #3B8224;
+      font-weight: bold;
+    }
+
+    .nav-tabs-custom .nav-item .nav-link.active {
+      color: #fff;
+      background-color: #3B8224;
+    }
+
+    /* ESTETICA DOS BOTOES */
+    .tabs {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tab {
+      border: none;
+      background-color: transparent;
+      padding: 10px 16px;
+      color: #6c757d; /* Cor parecida com .text-muted (como "Adicionar Perito") */
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: inherit;
+    }
+
+    .tab:hover {
+      background-color: rgba(59, 130, 36, 0.05); /* verde clarinho bem suave no hover */
+    }
+
+    .tab.active {
+      background-color: #3B8224;
+      color: white;
+    }
+ 
+    .table-container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+        
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+        
+    th, td {
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .td-icones {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-direction: row; /* <-- esta linha faz os ícones ficarem lado a lado */
+      align-items: center;
+      gap: 8px; /* espaçamento entre os ícones */
+    }
+
+    .icon-container i {
+      font-size: 16px;
+      cursor: pointer;
+      color: #3B8224;
+      transition: transform 0.2s ease;
+    }
+
+    /* Hover para ícones diretamente (como o lixo) */
+    .icon-container i:hover {
+      transform: scale(1.1);
+    }
+
+    /* Hover para ícones dentro de links (como a caneta) não esta a funcionar */
+    .icon-container a:hover i {
+      transform: scale(1.1);
+    }
+
+    .btn-save {
+      background-color: #3B8224;
+      color: white;
+    }
+
+    .btn-save:hover {
+      background-color: #2b6b1b; /* Cor mais escura do verde */
+      color: white;
+    }
+
+    .icon-container a,
+    .icon-container i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+    }
+
+    .sidebar-link.active {
+    background-color: #3B8224 !important; /* verde */
+    color: white !important;
+    border-radius: 10px;
+  }
+
+  .sidebar-link.active i {
+    color: white !important;
+  }
+
+  .sidebar-link.active .hide-menu {
+    color: white !important;
+  }
+
+  .sidebar-link {
+    transition: all 0.3s ease; /* Transição suave */
+  }
+
+  .sidebar-link:hover {
+      background-color: rgba(59, 130, 36, 0.30) !important; /* Verde levemente mais carregado */
+      color: #3B8224 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+            <div class="brand-logo d-flex align-items-center">
+              <img src="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" width="56" height="56" alt="Novo logotipo" class="logo-img" />
+              <span class="hide-menu logo-text">EyesEveryWhere</span>
+            </div>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">HOME</span>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Página Principal</span>
+                </a>
+              </li>
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">COMPONENTES</span>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link active" href="./ui-buttons.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-user"></i>  <!-- Ícone de uma pessoa (usuário) -->
+                  </span>
+                  <span class="hide-menu">Gestão de Peritos</span>
+                </a>
+              </li>            
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-file-description"></i>  <!-- Ícone de file-description -->
+                  </span>
+                  <span class="hide-menu">Gestão de Ocorrências e Auditorias</span>
+                </a>
+              </li>                       
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-box"></i>  <!-- Ícone de caixa -->
+                  </span>
+                  <span class="hide-menu">Gestão de Materiais</span>
+                </a>
+              </li>             
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+      </div>
+    </aside>
+    <!-- Sidebar End -->
+
+    <!-- Main Wrapper -->
+    <div class="body-wrapper">
+      <!-- Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <form class="d-flex ms-auto me-3" style="max-width: 300px; width: 100%;">
+              <div class="input-group border rounded-pill overflow-hidden">
+                <span class="input-group-text bg-white border-0 px-3">
+                  <i class="ti ti-search text-muted"></i>
+                </span>
+                <input class="form-control border-0 shadow-none" type="text" placeholder="Procurar ..." aria-label="Procurar">
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="definicoes.html">
+                  <i class="ti ti-settings" style="color: #3B8224;"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="alertas.html">
+                  <i class="ti ti-bell-ringing" style="color: #3B8224;"></i>
+                  <div class="notification rounded-circle" style="background-color: #3B8224; width: 8px; height: 8px;"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="authentication-login.html">
+                  <i class="ti ti-logout" style="color: #3B8224;"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="editInfperito.html">
+                  <i class="ti ti-user" style="color: #3B8224;"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Header End -->
+
+      <!-- Editar Perfil Card Start -->
+      <div class="container-fluid">
+        <h4 class="page-title" style="font-weight: 600;">Gestão de Peritos</h4>
+      
+        <div class="card shadow-sm card-custom">
+          <div class="card-header bg-white border-0 nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Listar Peritos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-muted" href="AdicionarPerito.html">Adicionar Perito</a>
+              </li>
+            </ul>
+          </div>
+      
+          <div class="card-body card-body-custom border-top">
+            <div class="container-fluid">
+              <div class="card shadow-sm card-custom">
+                <ul id="peritosList" class="list-group">
+                  <!-- Lista de peritos será carregada aqui -->
+                </ul>
+              </div>
+            </div>
+      
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const peritos = JSON.parse(localStorage.getItem('peritos')) || [];
+      
+                if (peritos.length === 0) {
+                  document.getElementById('peritosList').innerHTML = '<li class="list-group-item">Nenhum perito encontrado.</li>';
+                  return;
+                }
+      
+                peritos.forEach((perito, index) => {
+                  const listItem = document.createElement('li');
+                  listItem.classList.add('list-group-item');
+                  listItem.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>
+                        <strong>${perito.nomeCompleto}</strong> <br> ${perito.especialidade}
+                      </div>
+                      <div>
+                        <!-- Ícones de editar e excluir -->
+                        <a href="editInfPerito.html?id=${index}" class="btn btn-edit btn-sm" title="Editar">
+                          <i class="ti ti-pencil" style="color: #3B8224; font-size: 1.3rem;"></i>
+                        </a>
+                        <button class="btn btn-sm ml-2" style="background: transparent; border: none;" onclick="deletePerito(${index})" title="Excluir">
+                          <i class="ti ti-trash" style="color: #3B8224; font-size: 1.2rem;"></i>
+                        </button>
+                      </div>
+                    </div>
+                  `;
+                  document.getElementById('peritosList').appendChild(listItem);
+                });
+              });
+      
+              // Função para excluir um perito da localStorage
+              function deletePerito(index) {
+                let peritos = JSON.parse(localStorage.getItem('peritos')) || [];
+                peritos.splice(index, 1); // Remove o perito da lista
+                localStorage.setItem('peritos', JSON.stringify(peritos)); // Atualiza o localStorage
+                location.reload(); // Recarrega a página para atualizar a lista
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- Editar Perfil Card End -->
+
+    </div>
+
+  </div>
+
+  <script src="../assets/js/scripts.min.js"></script>
+</body>
+
+</html>

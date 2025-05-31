@@ -1,0 +1,648 @@
+<!--PAGINA REFERENTE A CRIAR AUDITORIAS-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EyesEverywhere</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
+  <style>
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      margin-left: -10px;
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      margin-right: 15px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      line-height: 56px;
+      margin-left: -5px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .hide-menu {
+      white-space: normal;
+      word-wrap: break-word;
+      margin-left: 10px;
+    }
+
+    .sidebar-link span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .card-custom {
+      margin-top: 30px;
+    }
+
+    .form-label {
+      font-weight: bold;
+      color: #3B8224;
+    }
+
+    .btn-save {
+      background-color: #3B8224;
+      color: white;
+    }
+
+    .card-body-custom {
+      background-color: #f8f9fa;
+    }
+
+    .nav-tabs-custom .nav-item .nav-link {
+      color: #3B8224;
+      font-weight: bold;
+    }
+
+    .nav-tabs-custom .nav-item .nav-link.active {
+      color: #fff;
+      background-color: #3B8224;
+    }
+
+    /* ESTETICA DOS BOTOES */
+    .tabs {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tab {
+      border: none;
+      background-color: transparent;
+      padding: 10px 16px;
+      color: #6c757d; /* Cor parecida com .text-muted (como "Adicionar Perito") */
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: inherit;
+    }
+
+    .tab:hover {
+      background-color: rgba(59, 130, 36, 0.05); /* verde clarinho bem suave no hover */
+    }
+
+    .tab.active {
+      background-color: #3B8224;
+      color: white;
+    }
+ 
+    .table-container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+        
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+        
+    th, td {
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .td-icones {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-direction: row; /* <-- esta linha faz os ícones ficarem lado a lado */
+      align-items: center;
+      gap: 8px; /* espaçamento entre os ícones */
+    }
+
+    .icon-container i {
+      font-size: 16px;
+      cursor: pointer;
+      color: #3B8224;
+      transition: transform 0.2s ease;
+    }
+
+    /* Hover para ícones diretamente (como o lixo) */
+    .icon-container i:hover {
+      transform: scale(1.1);
+    }
+
+    /* Hover para ícones dentro de links (como a caneta) não esta a funcionar */
+    .icon-container a:hover i {
+      transform: scale(1.1);
+    }
+
+    .btn-save {
+      background-color: #3B8224;
+      color: white;
+    }
+
+    .btn-save:hover {
+      background-color: #2b6b1b; /* Cor mais escura do verde */
+      color: white;
+    }
+
+    .icon-container a,
+    .icon-container i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+    }
+
+    .sidebar-link.active {
+    background-color: #3B8224 !important; /* verde */
+    color: white !important;
+    border-radius: 10px;
+  }
+
+  .sidebar-link.active i {
+    color: white !important;
+  }
+
+  .sidebar-link.active .hide-menu {
+    color: white !important;
+  }
+
+  .sidebar-link {
+    transition: all 0.3s ease; /* Transição suave */
+  }
+
+  .sidebar-link:hover {
+      background-color: rgba(59, 130, 36, 0.30) !important; /* Verde levemente mais carregado */
+      color: #3B8224 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+
+  .card-body-custom input,
+  .card-body-custom select,
+  .card-body-custom textarea {
+    background-color: white !important;
+  }
+
+  .form-group {
+      margin-bottom: 20px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+            <div class="brand-logo d-flex align-items-center">
+              <img src="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" width="56" height="56" alt="Novo logotipo" class="logo-img" />
+              <span class="hide-menu logo-text">EyesEveryWhere</span>
+            </div>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">HOME</span>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Página Principal</span>
+                </a>
+              </li>
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">COMPONENTES</span>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link " href="./ui-buttons.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-user"></i>  <!-- Ícone de uma pessoa (usuário) -->
+                  </span>
+                  <span class="hide-menu">Gestão de Peritos</span>
+                </a>
+              </li>            
+              <li class="sidebar-item">
+                <a class="sidebar-link active" href="./ui-alerts.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-file-description"></i>  <!-- Ícone de file-description -->
+                  </span>
+                  <span class="hide-menu">Gestão de Ocorrências e Auditorias</span>
+                </a>
+              </li>                       
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-box"></i>  <!-- Ícone de caixa -->
+                  </span>
+                  <span class="hide-menu">Gestão de Materiais</span>
+                </a>
+              </li>             
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+      </div>
+    </aside>
+    <!-- Sidebar End -->
+
+    <!-- Main Wrapper -->
+    <div class="body-wrapper">
+      <!-- Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <form class="d-flex ms-auto me-3" style="max-width: 300px; width: 100%;">
+              <div class="input-group border rounded-pill overflow-hidden">
+                <span class="input-group-text bg-white border-0 px-3">
+                  <i class="ti ti-search text-muted"></i>
+                </span>
+                <input class="form-control border-0 shadow-none" type="text" placeholder="Procurar ..." aria-label="Procurar">
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="definicoes.html">
+                  <i class="ti ti-settings" style="color: #3B8224;"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="alertas.html">
+                  <i class="ti ti-bell-ringing" style="color: #3B8224;"></i>
+                  <div class="notification rounded-circle" style="background-color: #3B8224; width: 8px; height: 8px;"></div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="authentication-login.html">
+                  <i class="ti ti-logout" style="color: #3B8224;"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="editInfperito.html">
+                  <i class="ti ti-user" style="color: #3B8224;"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Header End -->
+
+      <!-- Editar Perfil Card Start -->
+        
+        <div class="container-fluid">
+          <h4 class="page-title" style="font-weight: 600;">Auditorias</h4>
+  
+          <div class="card shadow-sm card-custom">
+            <div class="card-header bg-white border-0 nav-tabs-custom">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link text-muted" href="ListarAuditorias.html">Listar Auditorias</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Criar Auditoria</a>
+                </li>
+              </ul>
+            
+            </div>
+              <div class="card-body card-body-custom border-top">
+                  <div class="d-flex align-items-center mb-4">
+                    <div class="position-relative d-inline-block me-3">
+                      <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 64px; height: 64px; background-color: #D3D3D3;">
+                          <i class="ti ti-file-description" style="font-size: 32px; color: #3B8224;"></i>
+                      </div>
+                      <div class="position-absolute bottom-0 end-0 translate-middle rounded-circle d-flex align-items-center justify-content-center"
+                          style="background-color: #3B8224; width: 20px; height: 20px;">
+                          <i class="ti ti-pencil" style="font-size: 12px; color: white;"></i>
+                      </div>
+                    </div>
+                    <h5 class="fw-bold mb-0" style="color: #3B8224;">Criar Auditoria</h5>
+                  </div>
+                                                               
+                  <form onsubmit="adicionarAuditoria(event)">
+                    <div class="row">
+                  <!-- Coluna Esquerda -->
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="ocorrenciaId" class="form-label">ID da Ocorrência</label>
+                      <input type="text" class="form-control" id="ocorrenciaId" readonly />
+                    </div>
+
+                      <div class="form-group">
+                        <label for="localizacao" class="form-label">Localização</label>
+                        <input type="text" class="form-control" id="localizacao" readonly />
+                      </div>
+                    
+
+                      <!-- Campos para selecionar materiais e quantidade (1º material) -->
+                      
+                        <div class="  form-group">
+                          <label for="materialSelecionado" class="form-label">Material</label>
+                          <select id="materialSelecionado" class="form-select" required>
+                            <option value="">Selecionar Material</option>
+                          </select>
+                        </div>
+
+                        <div class="  form-group">
+                          <label for="quantidadeSelecionada" class="form-label">Quantidade</label>
+                          <input type="number" id="quantidadeSelecionada" class="form-control" required min="1" />
+                        </div>
+                      
+
+                      <!-- Campos para selecionar materiais e quantidade (2º material) -->
+                      
+                        <div class="  form-group">
+                          <label for="materialSelecionado2" class="form-label">Material</label>
+                          <select id="materialSelecionado2" class="form-select" required>
+                            <option value="">Selecionar Material</option>
+                          </select>
+                        </div>
+
+                        <div class="  form-group">
+                          <label for="quantidadeSelecionada2" class="form-label">Quantidade</label>
+                          <input type="number" id="quantidadeSelecionada2" class="form-control" required min="1" />
+                        </div>
+                      
+
+                      <!-- Campos para selecionar materiais e quantidade (3º material) -->
+                      
+                        <div class="  form-group">
+                          <label for="materialSelecionado3" class="form-label">Material</label>
+                          <select id="materialSelecionado3" class="form-select" required>
+                            <option value="">Selecionar Material</option>
+                          </select>
+                        </div>
+
+                        <div class=" form-group">
+                          <label for="quantidadeSelecionada3" class="form-label">Quantidade</label>
+                          <input type="number" id="quantidadeSelecionada3" class="form-control" required min="1" />
+                        </div>
+
+                  </div>
+  
+                  <!-- Coluna Direita -->
+                  <div class="col-md-6">
+
+                    <div class=" form-group">
+                      <label for="tipo" class="form-label">Tipo de Ocorrência</label>
+                      <input type="text" class="form-control" id="tipo" readonly />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="peritoSelecionado" class="form-label">Perito</label>
+                      <select id="peritoSelecionado" class="form-select" required>
+                        <option value="">Selecionar Perito Disponível</option>
+                      </select>
+                    </div>
+
+                    <!-- Campo para selecionar a origem -->
+                    <div class=" form-group">
+                      <label for="origem" class="form-label">Origem</label>
+                      <select id="origem" class="form-select" required>
+                        <option value="">Selecionar Origem</option>
+                        <option value="interna">Interna</option>
+                        <option value="externa">Externa</option>
+                      </select>
+                    </div>
+
+                    <!-- Campo para a Data de Criação -->
+                    <div class="form-group">
+                        <label for="dataCriacao" class="form-label">Data de Criação</label>
+                        <input type="date" id="dataCriacao" class="form-control" required />
+                    </div>
+
+                    <!-- Campo para a Data de Agendamento -->
+                      <div class="form-group">
+                        <label for="dataAgendamento" class="form-label">Data de Agendamento</label>
+                        <input type="date" id="dataAgendamento" class="form-control" required />
+                      </div>
+                  
+                    <!-- Campo para a Hora de Agendamento -->
+                      <div class="form-group">
+                        <label for="horaAgendamento" class="form-label">Hora de Agendamento</label>
+                        <input type="time" id="horaAgendamento" class="form-control" required />
+                      </div>
+
+                     <!-- Campo para a Duração (em horas) -->
+                      <div class="form-group">
+                          <label for="duracao" class="form-label">Duração (em horas)</label>
+                          <input type="number" id="duracao" class="form-control" required min="1" />
+                      </div> 
+
+                      <!-- Campo para o Estado -->
+                      <div class=" form-group">
+                      <label for="estado" class="form-label">Estado</label>
+                      <select id="estado" class="form-select" required>
+                        <option value="">Selecionar Estado</option>
+                        <option value="Em tratamento">Em tratamento</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                </div>
+  
+                <div class="d-flex justify-content-end mt-3">
+                  <button type="submit" class="btn btn-save">Guardar</button>
+                </div>
+                
+              </form>
+  
+              <!-- Scripts -->
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  // Código que carrega as informações dos campos, como já está no teu código.
+                  const params = new URLSearchParams(window.location.search);
+                  const id = params.get("id");
+                  const tipo = params.get("tipo");
+                  const localizacao = params.get("localizacao");
+
+                  if (id && tipo && localizacao) {
+                    document.getElementById("ocorrenciaId").value = id;
+                    document.getElementById("tipo").value = tipo;
+                    document.getElementById("localizacao").value = localizacao;
+                  }
+
+                  // Carregar peritos e materiais como já está no teu código
+                  const peritoSelect = document.getElementById("peritoSelecionado");
+                  const peritos = JSON.parse(localStorage.getItem("peritos") || "[]");
+
+                  peritos.forEach(perito => {
+                    const option = document.createElement("option");
+                    option.value = perito.id;
+                    option.textContent = perito.nomeCompleto;
+                    peritoSelect.appendChild(option);
+                  });
+
+                  const materiais = JSON.parse(localStorage.getItem("materiais") || "[]");
+                  const materialSelect1 = document.getElementById("materialSelecionado");
+                  const materialSelect2 = document.getElementById("materialSelecionado2");
+                  const materialSelect3 = document.getElementById("materialSelecionado3");
+
+                  materiais.forEach(material => {
+                    const option1 = document.createElement("option");
+                    option1.value = material.id;
+                    option1.textContent = `${material.nome} - Quantidade disponível: ${material.quantidade}`;
+                    materialSelect1.appendChild(option1);
+
+                    const option2 = document.createElement("option");
+                    option2.value = material.id;
+                    option2.textContent = `${material.nome} - Quantidade disponível: ${material.quantidade}`;
+                    materialSelect2.appendChild(option2);
+
+                    const option3 = document.createElement("option");
+                    option3.value = material.id;
+                    option3.textContent = `${material.nome} - Quantidade disponível: ${material.quantidade}`;
+                    materialSelect3.appendChild(option3);
+                  });
+
+
+                  // Atualizar a quantidade permitida com base no material selecionado
+                  function updateQuantidadeInput(materialSelectId, quantidadeInputId) {
+                    document.getElementById(materialSelectId).addEventListener("change", function() {
+                      const materialId = this.value;
+                      const material = materiais.find(m => m.id == materialId);
+                      const quantidadeInput = document.getElementById(quantidadeInputId);
+
+                      if (material) {
+                        // Limitar a quantidade para a disponível
+                        quantidadeInput.max = material.quantidade;
+                        quantidadeInput.value = 1; // resetar para o valor inicial
+                      }
+                    });
+                  }
+
+                  updateQuantidadeInput("materialSelecionado", "quantidadeSelecionada");
+                  updateQuantidadeInput("materialSelecionado2", "quantidadeSelecionada2");
+                  updateQuantidadeInput("materialSelecionado3", "quantidadeSelecionada3");
+
+                  // Definir a data de criação para a data atual
+                  const dataCriacaoInput = document.getElementById("dataCriacao");
+                  const dataAtual = new Date().toISOString().split('T')[0]; // formata como YYYY-MM-DD
+                  dataCriacaoInput.value = dataAtual;
+
+                  // Definir a data de agendamento para a data atual
+                  const dataAgendamentoInput = document.getElementById("dataAgendamento");
+                  dataAgendamentoInput.value = dataAtual;
+                });
+
+                function adicionarAuditoria(event) {
+                  event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+
+                  // Obter valores dos campos do formulário
+                  const peritoId = document.getElementById("peritoSelecionado").value;
+                  const peritoNome = document.getElementById("peritoSelecionado").selectedOptions[0].textContent;
+                  const materialId1 = document.getElementById("materialSelecionado").value;
+                  const quantidade1 = document.getElementById("quantidadeSelecionada").value;
+                  const materialId2 = document.getElementById("materialSelecionado2").value;
+                  const quantidade2 = document.getElementById("quantidadeSelecionada2").value;
+                  const materialId3 = document.getElementById("materialSelecionado3").value;
+                  const quantidade3 = document.getElementById("quantidadeSelecionada3").value;
+                  const origem = document.getElementById("origem").value;
+                  const dataCriacao = document.getElementById("dataCriacao").value;
+                  const dataAgendamento = document.getElementById("dataAgendamento").value;
+                  const horaAgendamento = document.getElementById("horaAgendamento").value;
+                  const duracao = document.getElementById("duracao").value;
+                  const estado = document.getElementById("estado").value; 
+
+                  // Verificar se todos os campos estão preenchidos
+                  if (!peritoId || !materialId1 || !quantidade1 || !materialId2 || !quantidade2 || !materialId3 || !quantidade3 || !origem || !dataCriacao || !dataAgendamento || !horaAgendamento || !duracao || !estado) {
+                      alert("Por favor preencha todos os campos.");
+                      return;
+                  }
+
+                  // Criar objeto auditoria
+                  const auditoria = {
+                      id: Date.now(),
+                      ocorrenciaId: document.getElementById("ocorrenciaId").value,
+                      tipo: document.getElementById("tipo").value,
+                      localizacao: document.getElementById("localizacao").value,
+                      peritoId,
+                      peritoNome,
+                      materiais: [
+                          { materialId: materialId1, quantidade: parseInt(quantidade1) },
+                          { materialId: materialId2, quantidade: parseInt(quantidade2) },
+                          { materialId: materialId3, quantidade: parseInt(quantidade3) }
+                      ],
+                      origem,
+                      dataCriacao,
+                      dataAgendamento,
+                      horaAgendamento,
+                      duracao,
+                      estado
+                  };
+
+                  // Atualizar as quantidades dos materiais no localStorage
+                  let materiais = JSON.parse(localStorage.getItem("materiais") || "[]");
+
+                  // Atualizar a quantidade dos materiais utilizados
+                  materiais.forEach(material => {
+                      // Verificar se o material corresponde aos materiais usados na auditoria e atualizar a quantidade
+                      const auditoriaMaterial = auditoria.materiais.find(m => m.materialId == material.id);
+                      if (auditoriaMaterial) {
+                          material.quantidade -= auditoriaMaterial.quantidade; // Subtrair a quantidade usada
+                      }
+                  });
+
+                  // Salvar os materiais atualizados no localStorage
+                  localStorage.setItem("materiais", JSON.stringify(materiais));
+
+                  // Salvar a auditoria (se necessário)
+                  let auditorias = JSON.parse(localStorage.getItem("auditorias") || "[]");
+                  auditorias.push(auditoria);
+                  localStorage.setItem("auditorias", JSON.stringify(auditorias));
+
+                  // Informar o usuário que a auditoria foi salva com sucesso
+                  alert("Auditoria salva com sucesso!");
+
+                  // Redirecionar para a página de listar auditorias
+                  window.location.href = 'ListarAuditorias.html';
+              }
+              </script>
+
+          </div>
+            </div>
+        </div>
+        </div>
+      
+      <!-- Editar Perfil Card End -->
+
+    </div>
+
+  </div>
+
+  <script src="../assets/js/scripts.min.js"></script>
+</body>
+
+</html>

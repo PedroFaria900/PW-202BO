@@ -1,0 +1,146 @@
+
+<!--PAGINA REFERENTE AO LOGIN-->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EyesEverywhere</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f7f7f7;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    /* Estilo da imagem */
+    .image-container img {
+      width: 85%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Contêiner do texto e botão */
+    .text-content {
+      width: 40%;
+      text-align: right;
+      padding-right: 30px;
+    }
+
+    .logo-img {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .logo-img img {
+      width: 40px; /* Ícone menor */
+      margin-right: 10px;
+    }
+
+    .eyeseverywhere {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .phrase {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #AACF45;
+      margin-top: 10px;
+    }
+
+    .google-btn {
+      background-color: #3B8224;
+      color: white;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      margin-top: 40px; /* Aumentei o espaçamento entre o botão e as frases */
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .google-btn:hover {
+      background-color: #2e6e1f;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+      transform: translateY(3px); /* Faz o botão mover ligeiramente para baixo */
+    }
+
+    .google-btn i {
+      margin-right: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Imagem relacionada ao tema de higiene e segurança urbana (lado esquerdo) -->
+    <div class="image-container">
+      <img src="https://www.jf-belem.pt/wp-content/uploads/2022/08/disinfection-specialist-man-personal-protective-equipment-ppe-suit-gloves-mask-face-shield-cleaning-quarantine-area-with-bottle-pressurized-spray-disinfectant-remove-coronavirus-scaled-e1661280888271-1536x1429.jpg" alt="Higiene e Segurança Urbana">
+    </div>
+
+    <!-- Texto e botão do lado direito -->
+    <div class="text-content">
+      <a href="./index.html" class="logo-img">
+        <img src="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" alt="EyesEverywhere Icon"> <!-- Ícone menor -->
+        <span class="eyeseverywhere">EyesEverywhere</span> <!-- Nome em negrito -->
+      </a>
+
+      <p class="phrase">É Bom Ver-Te De Volta!</p>
+
+      <!-- Botão de login com Google (fundo verde) -->
+      <a href="index.html">
+        <button class="google-btn">
+          <i class="fab fa-google"></i>Log In with Google
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Script para o ícone do Google -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,423 @@
+<!--PAGINA PRINCIPAL-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--NOME NA BARRA DE PESQUISA-->
+  <title>EyesEverywhere</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  
+  <!-- ESTILO DO LOGOTIPO E DE EYESWVWRYWHERE NO CANTO SUPERIOR ESQUERDO  -->
+  <style>
+    .brand-logo {
+      display: flex;
+      align-items: center;  /* Alinha o ícone e o texto verticalmente ao centro */
+      margin-left: -10px;    /* Move o conjunto (ícone + texto) para a esquerda */
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      margin-right: 15px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      line-height: 56px; /* Garante que o texto fique alinhado verticalmente ao ícone */
+      margin-left: -5px;  /* Move a palavra mais para a esquerda */
+    }
+
+    .sidebar-link.active {
+    background-color: #3B8224 !important; /* verde */
+    color: white !important;
+    border-radius: 10px;
+  }
+
+  .sidebar-link.active i {
+    color: white !important;
+  }
+
+  .sidebar-link.active .hide-menu {
+    color: white !important;
+  }
+  </style>
+
+  <!-- ESTILO PARA AS OPÇÕES DA BARRA LATERAL -->
+  <style>
+    /* Sidebar link contêiner */
+    .sidebar-link {
+      display: flex;
+      align-items: center;    /* Alinha verticalmente o ícone e o texto */
+      flex-wrap: nowrap;       /* Não permite que o ícone e o texto se movam para a linha seguinte */
+    }
+
+    /* Estilo para o texto */
+    .hide-menu {
+      white-space: normal;     /* Permite que o texto quebre na linha seguinte */
+      word-wrap: break-word;   /* Garante que palavras longas que não cabem sejam quebradas */
+      margin-left: 10px;       /* Espaço entre o ícone e o texto */
+    }
+
+    /* Ajustando o ícone */
+    .sidebar-link span {
+      display: inline-block;
+      margin-right: 10px;      /* Espaço entre o ícone e o texto */
+    }
+
+    .sidebar-link {
+    transition: all 0.3s ease; /* Transição suave */
+  }
+
+  .sidebar-link:hover {
+      background-color: rgba(59, 130, 36, 0.30) !important; /* Verde levemente mais carregado */
+      color: #3B8224 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  </style>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+
+            <!-- LOGOTIPO E NOME DO SITE  -->
+            <div class="brand-logo d-flex align-items-center">
+              <img src="https://i.postimg.cc/htBfcBX3/undefined-Imgur.png" width="56" height="56" alt="Novo logotipo" class="logo-img"/>
+              <span class="hide-menu logo-text">EyesEveryWhere</span>
+            </div>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">HOME</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Página Principal</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">COMPONENTES</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>  <!-- Ícone de uma pessoa (usuário) -->
+                </span>
+                <span class="hide-menu">Gestão de Peritos</span>
+              </a>
+            </li>            
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-description"></i>  <!-- Ícone de file-description -->
+                </span>
+                <span class="hide-menu">Gestão de Ocorrências e Auditorias</span>
+              </a>
+            </li>                       
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-box"></i>  <!-- Ícone de caixa -->
+                </span>
+                <span class="hide-menu">Gestão de Materiais</span>
+              </a>
+            </li>            
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <!--  DIZ RESPEITO À BARRA DE NEVEGAÇÃO -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <!-- Espaço de pesquisa estilizado -->
+                  <form class="d-flex ms-auto me-3" style="max-width: 300px; width: 100%;">
+                    <div class="input-group border rounded-pill overflow-hidden">
+                        <span class="input-group-text bg-white border-0 px-3">
+                            <i class="ti ti-search text-muted"></i>
+                        </span>
+                        <input class="form-control border-0 shadow-none" type="text" placeholder="Procurar ..." aria-label="Procurar">
+                    </div>
+                </form>
+          
+                <!-- Ícones alinhados à direita -->
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link nav-icon-hover" href="definicoes.html">
+                      <i class="ti ti-settings" style="color: #3B8224;"></i> <!-- Ícone de Definições -->
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link nav-icon-hover" href="alertas.html">
+                      <i class="ti ti-bell-ringing" style="color: #3B8224;"></i> <!-- Ícone de Alertas -->
+                      <div class="notification rounded-circle" style="background-color: #3B8224; width: 8px; height: 8px;"></div> <!-- Notificação verde bem pequena -->
+                    </a>
+                  </li>
+                  
+              
+                  <li class="nav-item">
+                    <a class="nav-link nav-icon-hover" href="authentication-login.html">
+                        <i class="ti ti-logout" style="color: #3B8224;"></i> <!-- Ícone de Logout (Sair) -->
+                    </a>
+                </li>
+                
+                  <li class="nav-item">
+                      <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                          <i class="ti ti-user" style="color: #3B8224;"></i> <!-- Ícone de Perfil (Pessoa) -->
+                      </a>
+                  </li>
+              </ul>              
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <!--  Header End -->
+      <div class="container-fluid">
+
+        <!--  Visão Geral de Auditorias-->
+        <div class="row">
+          <div class="col-lg-8 d-flex align-items-strech">
+            <div class="card w-100">
+              <div class="card-body">
+                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                  <div class="mb-3 mb-sm-0">
+                    <h5 class="card-title fw-semibold">Visão Geral de Auditorias</h5>
+                  </div>
+                  <div>
+                    <input type="text" class="form-control text-center fw-semibold w-auto" value="2025" readonly>
+                  </div>
+                </div>
+                <div id="chart"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-lg-12">
+
+                <!-- Crachá Digital -->
+                <div class="card overflow-hidden shadow-sm">
+                  <div class="card-body p-4 text-center">
+                      <h5 class="card-title mb-4 fw-semibold text-dark">Crachá Digital</h5>
+                      <div class="d-flex justify-content-center mb-4">
+                          <span class="rounded-circle bg-light p-4 d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                              <i class="ti ti-user" style="font-size: 50px; color: #3B8224;"></i> <!-- Ícone de Pessoa com a cor verde -->
+                          </span>
+                      </div>
+                      <div class="text-start px-3">
+                          <p class="mb-2"><i class="ti ti-user fs-5" style="color: #3B8224;" class="me-2"></i><strong>Nome de Utilizador:</strong> João Silva</p>
+                          <p class="mb-2"><i class="ti ti-award fs-5" style="color: #3B8224;" class="me-2"></i><strong>Especialidade:</strong> Emissão de Relatório</p>
+                          <p class="mb-0"><i class="ti ti-id fs-5" style="color: #3B8224;" class="me-2"></i><strong>ID de Perito:</strong> 12349256</p>
+                      </div>
+                  </div>
+              </div>
+                           
+
+                  <!-- Visão Geral de Ocorrências -->
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="row align-items-start">
+                          <div class="col-12">
+                            <h5 class="card-title mb-9 fw-semibold">Visão Geral de Ocorrências</h5>
+                            <p class="fs-3 mb-0" style="display: flex; align-items: center; gap: 8px;">
+                              <i class="ti ti-file-description" style="font-size: 1.5rem; color: #3B8224;"></i>
+                              Ocorrências Mensais
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="earning"></div>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        
+
+          <!-- Peritos Disponíveis -->
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <div class="mb-4">
+                  <h5 class="card-title fw-semibold">Peritos Disponíveis</h5>
+                </div>
+                <!-- Lista de Peritos Dinâmica -->
+                <div class="d-flex flex-column" id="lista-peritos">
+                  <!-- Peritos serão carregados dinamicamente aqui -->
+                </div>
+
+                <!-- Menu de 3 Pontinhos -->
+                <div class="dropdown mt-4">
+                  <button class="btn btn-link p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="ti ti-dots-vertical" style="color: #3B8224;" class="text-dark fs-4"></i>
+                  </button>
+                  <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Mais Peritos</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Script para gerar os peritos -->
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+              const lista = document.getElementById("lista-peritos");
+
+              if (peritos.length === 0) {
+                lista.innerHTML = '<p class="text-muted">Nenhum perito registado.</p>';
+                return;
+              }
+
+              peritos.slice(0, 4).forEach(perito => { // Mostra apenas os 4 primeiros
+                const bloco = document.createElement("div");
+                bloco.className = "d-flex align-items-center mb-3";
+
+                bloco.innerHTML = `
+                  <span class="rounded-circle bg-light p-3 d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;">
+                    <i class="ti ti-user" style="font-size: 30px; color: #3B8224;"></i>
+                  </span>
+                  <div>
+                    <p class="mb-1 fw-semibold" style="line-height: 1.1;">${perito.nomeCompleto}</p>
+                    <p class="mb-0 text-muted" style="font-size: 0.875rem;">Especialidade: ${perito.especialidade}</p>
+                  </div>
+                `;
+                lista.appendChild(bloco);
+              });
+            });
+          </script>
+
+                    <!-- CLASSIFICAÇÃO DE OCORRÊNCIAS -->
+                    <!-- Ocorrências -->
+                    <div class="col-lg-8 d-flex align-items-stretch">
+                    <div class="card w-100">
+                      <div class="card-body p-4">
+                        <h5 class="card-title fw-semibold mb-4">Classificação de Ocorrências</h5>
+                        
+                        <!-- Gráfico -->
+                        <div id="breakup" style="height: 300px;"></div> <!-- Sem display:flex -->
+
+                        <!-- Descrição e Legenda -->
+                        <div class="mt-4">
+                          <div class="d-flex justify-content-between" id="legenda-container">
+                            <!-- Legenda será inserida via JS -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SÃO AS BIBLIOTECAS -->
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+
+
+
+<script>
+  
+  // Mostrar Ocorrências
+  document.addEventListener('DOMContentLoaded', function() {
+    const ocorrencias = JSON.parse(localStorage.getItem('ocorrencias')) || [];
+
+    if (ocorrencias.length > 0 && document.getElementById("breakup")) {
+      const groupedData = ocorrencias.reduce((acc, curr) => {
+        acc[curr.tipo] = (acc[curr.tipo] || 0) + (Number(curr.quantidade) || 1);
+        return acc;
+      }, {});
+
+      const labels = Object.keys(groupedData);
+      const series = Object.values(groupedData);
+
+      const total = series.reduce((a, b) => a + b, 0);
+
+      // Atualiza legenda manual
+      const legendaContainer = document.getElementById('legenda-container');
+      if (legendaContainer) {
+        legendaContainer.innerHTML = '';
+        labels.forEach((label, i) => {
+          const percentage = ((series[i] / total) * 100).toFixed(0) + '%';
+          const color = ['#3B8224', '#82b366', '#a4c639', '#c0d9af'][i % 4];
+
+          legendaContainer.innerHTML += `
+            <div class="d-flex align-items-center">
+              <span class="badge" style="background-color: ${color}; width: 16px; height: 16px; border-radius: 3px;"></span>
+              <p class="mb-0 ms-2">${label}: ${percentage}</p>
+            </div>
+          `;
+        });
+      }
+
+      const options = {
+        chart: {
+          type: 'donut',
+          height: 300
+        },
+        labels: labels,
+        series: series,
+        colors: ['#3B8224', '#82b366', '#a4c639', '#c0d9af'],
+        legend: { show: false }
+      };
+
+      // Destrói gráfico anterior se existir
+      if (window.ocorrenciasChart) {
+        window.ocorrenciasChart.destroy();
+      }
+
+      window.ocorrenciasChart = new ApexCharts(document.querySelector("#breakup"), options);
+      window.ocorrenciasChart.render();
+
+    } else {
+      console.warn("Nenhuma ocorrência para mostrar no gráfico ou elemento #breakup não encontrado.");
+   }
+  });
+</script>
+
+</body>
+
+</html>
